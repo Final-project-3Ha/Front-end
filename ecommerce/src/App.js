@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+
+// Public Pages
+
 import HomePage from "./pages/HomePage/HomePage.js";
 import CartPage from "./pages/CartPage/CartPage.js";
 import LoginPage from "./pages/LoginPage/LoginPage.js";
@@ -11,14 +14,14 @@ import ProductListPage from "./pages/ProductListPage/ProductListPage.js";
 
 import ProtectedRoutesComponent from "./components/ProtectedRoutesComponent/ProtectedRoutesComponent";
 
-// Protected Users Routes
+// Protected Users Pages
 
 import UserCartDetailsPage from "./pages/User/UserCartDetailsPage.js";
 import UserOrderDetailsPage from "./pages/User/UserOrderDetailsPage.js";
 import UserOrdersPage from "./pages/User/UserOrdersPage.js";
 import UserProfilePage from "./pages/User/UserProfilePage.js";
 
-// Protected Admin Routes
+// Protected Admin Pages
 
 import AdminUserPages from "./pages/Admin/AdminUserPage.js";
 import AdminEditUserPages from "./pages/Admin/AdminEditUserPage";
@@ -30,14 +33,22 @@ import AdminOrderDetailsPage from "./pages/Admin/AdminOrderDetailsPage.js";
 import AdminOrdersPage from "./pages/Admin/AdminOrdersPage.js";
 import AdminProductsPage from "./pages/Admin/AdminAnalyticsPage";
 
+// All the components
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
+          {/* Public Routes */}
+
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<HomePage />} />
           <Route path="/product-details" element={<ProductDetailsPage />} />
           <Route path="/product-list" element={<ProductListPage />} />
           <Route path="/cart" element={<CartPage />} />
@@ -84,6 +95,7 @@ function App() {
 
           <Route path="*" element="Page not exists 404 " />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
