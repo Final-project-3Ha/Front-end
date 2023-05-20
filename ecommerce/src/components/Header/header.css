@@ -1,0 +1,30 @@
+:root {
+  --primaryColor: #ffffff;
+  --secondaryColor: #458217;
+  --accentColor: #f7892d;
+  --accentColorHover: #f7882ddc;
+}
+
+
+   .nav-link:hover {
+  color: var(--accentColor);
+}
+
+
+/* .ms-1:hover {
+  color: #f7892d;
+} */
+
+
+
+.custom-dropdown .dropdown-toggle {
+  background-color: var(--accentColor);
+  color: var(--primaryColor);
+}
+
+.custom-dropdown .dropdown-toggle:hover {
+  background-color: var(--accentColorHover);
+  /* color: <your-hover-text-color>; */
+}
+
+
