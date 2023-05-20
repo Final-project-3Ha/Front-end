@@ -102,7 +102,7 @@ function Header() {
 
             <NavDropdown
               title="Hassan"
-              id="collasible-nav-dropdown "
+              id="collasible-nav-dropdown"
               style={{ color: primaryColor }}
             >
               <NavDropdown.Item
