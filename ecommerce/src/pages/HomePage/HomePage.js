@@ -4,12 +4,21 @@ import ProductCarouselComponent from "../../components/productCarousel/ProductCa
 import CategoryCardComponent from "../../components/CategoryCard/CategoryCardComponent.js";
 
 function HomePage() {
-  const categories = ["Dairy products", "Olive oil", "Zaatar", "Jam", "Torshi", "Honey"];
+  const categories = [
+    "Dairy products",
+    "Olive oil",
+    "Zaatar",
+    "Jam",
+    "Torshi",
+    "Olive oil",
+    "Honey",
+    "Zaatar",
+  ];
   return (
     <>
       <ProductCarouselComponent />
-      <Container>
-        <Row xs={1} md={2} className="g-4 mt-5 mb-5 ">
+      <Container >
+        <Row xs={1} md={2} className="g-4 mt-2  ">
           {categories.map((category, idx) => (
             <CategoryCardComponent key={idx} category={category} idx={idx} />
           ))}

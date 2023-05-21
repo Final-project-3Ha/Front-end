@@ -15,8 +15,8 @@ function Footer() {
   return (
     <footer>
       <Container fluid style={footerStyle}>
-        <Row style={{ primaryColor }} className="mt-5">
-          <Col style={{ color: primaryColor }} className="text-center py-5">
+        <Row className="mt-5" style={{ primaryColor }}>
+          <Col className="text-center py-5" style={{ color: primaryColor }}>
             Copyright &copy; MOUNTAIN BOONS
           </Col>
         </Row>

@@ -1,15 +1,29 @@
-html {
+/* html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    margin-bottom: 170Px;
+    margin-bottom: 170px;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height : 170px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 170px;
+} */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 170px;
+}
+
+footer {
+  position: relative;
+  width: 100%;
 }

@@ -18,10 +18,12 @@ function CategoryCardComponent({ category, idx }) {
     "/images/Carousel/nature-1.jpg",
     "/images/Carousel/nature-1.jpg",
     "/images/Carousel/nature-1.jpg",
+    "/images/Carousel/nature-1.jpg",
+    "/images/Carousel/nature-1.jpg",
   ];
   return (
     <Card>
-      <Card.Img crossorigin="anonymous" variant="top" src={images[idx]} />
+      <Card.Img crossOrigin="anonymous" variant="top" src={images[idx]} />
       <Card.Body>
         <Card.Title>{category}</Card.Title>
         <Card.Text>
@@ -30,7 +32,7 @@ function CategoryCardComponent({ category, idx }) {
         </Card.Text>
         {/* <LinkContainer to="product-list" style={accentButtonStyle}>
           <Button variant="primary" bg="#E48334" style={accentButtonStyle}> */}
-        <LinkContainer to="product-list" > 
+        <LinkContainer to="product-list">
           <Button variant="primary" className=" btn btn-category btn-block">
             Go to the Category
           </Button>
