@@ -1,0 +1,16 @@
+:root {
+  --primaryColor: #ffffff;
+  --secondaryColor: #458217;
+  --accentColor: #E48334;
+  --accentColorHover: #e48334e8;
+}
+
+.btn.btn-category  {
+  background-color: var(--accentColor);
+  border-color: var(--primaryColor)
+}
+
+.btn.btn-category:hover {
+  background-color: var(--accentColorHover);
+  border-color: var(--primaryColor)
+}

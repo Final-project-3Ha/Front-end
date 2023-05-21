@@ -1,115 +1,73 @@
-import React from "react";
 import {
+  Navbar,
+  Nav,
+  Container,
+  NavDropdown,
   Badge,
   Form,
-  Container,
-  Nav,
-  Navbar,
-  NavDropdown,
   DropdownButton,
   Dropdown,
   Button,
   InputGroup,
 } from "react-bootstrap";
-import './header.css'
+
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-// import * as icons from "bootstrap-icons";
-
-function Header() {
-  const primaryColor = "#ffffff";
+const HeaderComponent = () => {
+  // const primaryColor = "#ffffff";
   const secondaryColor = "#458217";
-   const accentColor = "#f7892d";
-
-  const navbarStyle = {
-    // backgroundColor: accentColor,
-    backgroundColor: secondaryColor,
-    height: "80px",
-  };
-
-  const brandTextStyle = {
-    color: primaryColor,
-  };
-
+  const accentColor = "#E48334";
   const accentButtonStyle = {
-    // backgroundColor: secondaryColor,
     backgroundColor: accentColor,
   };
-  // const dropdownButtonStyle = {
-  //   backgroundColor: "#f7892d", 
-  // };
-
-  
-
-  // const brandTextAccentStyle = {
-  //   color: accentColor,
-  // };
-
-  // const navLinkTextStyle = {
-  //   color: primaryColor,
-  // };
+  const navbarStyle = {
+    backgroundColor: secondaryColor,
+  };
   return (
-    <Navbar
-      collapseOnSelect
-      // expand="lg"
-      // bg="dark"
-      // variant="dark"
-      style={navbarStyle}
-    >
-      <LinkContainer to="/" style={brandTextStyle}>
-        <Navbar.Brand className="ms-3" href="/">
-          MOUNTAIN BOONS
-        </Navbar.Brand>
-      </LinkContainer>
+    <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
       <Container>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        {/* <i className="bi bi-cart-dash"></i> */}
+        <LinkContainer to="/">
+          <Navbar.Brand href="/">MOUNTAIN BOONS</Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          style={{ border: "2px solid White", padding: "5px" }}
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <InputGroup>
-              {/* Dropdown menu */}
               <DropdownButton
-                id="dropdown-item-button"
-                title="Categories"
-                className="custom-dropdown"
-                // style={dropdownButtonStyle}
-                // style= {brandTextStyle}
+                id="dropdown-basic-button"
+                title="All"
+                style={accentButtonStyle}
               >
-                <Dropdown.ItemText>Olive Oil</Dropdown.ItemText>
-                <Dropdown.ItemText>Olive Oil</Dropdown.ItemText>
-                <Dropdown.ItemText>Olive Oil</Dropdown.ItemText>
-                <Dropdown.ItemText>Olive Oil</Dropdown.ItemText>
+                <Dropdown.Item>Olive oil</Dropdown.Item>
+                <Dropdown.Item>Zaatar</Dropdown.Item>
+                <Dropdown.Item>Honey</Dropdown.Item>
               </DropdownButton>
-              {/* search bar */}
-              <Form.Control type="text" placeholder="Search in shop..."  />
+              <Form.Control type="text" placeholder="Search in shop ..." />
               <Button variant="warning" style={accentButtonStyle}>
-                <i className="bi bi-search"></i>
+                <i className="bi bi-search text-dark"></i>
               </Button>
             </InputGroup>
           </Nav>
           <Nav>
-            <LinkContainer to="/admin/orders" style={{ color: primaryColor }}>
-              <Nav.Link style={brandTextStyle}>
+            <LinkContainer to="/admin/orders">
+              <Nav.Link>
                 Admin
-                <Badge
-                  pill
-                  bg={accentColor}
-                  style={{ backgroundColor: accentColor }}
-                >
-                  2
-                </Badge>
+                <span
+                  className="position-absolute top-1 start-10 translate-middle p-2  border border-light rounded-circle"
+                  style={accentButtonStyle}
+                ></span>
               </Nav.Link>
             </LinkContainer>
 
-            <NavDropdown
-              title="Hassan"
-              id="collasible-nav-dropdown"
-              style={{ color: primaryColor }}
-            >
+            <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">
               <NavDropdown.Item
                 eventKey="/user/my-orders"
                 as={Link}
                 to="/user/my-orders"
-                // style={brandTextStyle}
               >
                 My orders
               </NavDropdown.Item>
@@ -118,30 +76,19 @@ function Header() {
               </NavDropdown.Item>
               <NavDropdown.Item>Logout</NavDropdown.Item>
             </NavDropdown>
-
-            <LinkContainer to="/login" style={{ color: primaryColor }}>
+            <LinkContainer to="/login">
               <Nav.Link>Login</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/register" style={{ color: primaryColor }}>
+            <LinkContainer to="/register">
               <Nav.Link>Register</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/cart">
-              <Nav.Link>
-                <i
-                  className="bi bi-cart-dash"
-                  style={{ color: primaryColor }}
-                ></i>
-
-                <span className="ms-1" style={{ color: primaryColor }}>
-                  Cart
-                </span>
-                <Badge
-                  pill
-                  bg={accentColor}
-                  style={{ backgroundColor: accentColor }}
-                >
+              <Nav.Link style={accentButtonStyle}>
+                <Badge pill bg="#E48334" style={accentButtonStyle}>
                   2
                 </Badge>
+                <i className="bi bi-cart-dash"></i>
+                <span className="ms-1">CART</span>
               </Nav.Link>
             </LinkContainer>
           </Nav>
@@ -149,6 +96,6 @@ function Header() {
       </Container>
     </Navbar>
   );
-}
+};
 
-export default Header;
+export default HeaderComponent;
