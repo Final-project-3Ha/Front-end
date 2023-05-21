@@ -16,11 +16,14 @@ function HomePage() {
   ];
   return (
     <>
+    
       <ProductCarouselComponent />
-      <Container >
-        <Row xs={1} md={2} className="g-4 mt-2  ">
+      <Container>
+        <Row xs={1} md={2} className="g-5 mt-2  ">
           {categories.map((category, idx) => (
-            <CategoryCardComponent key={idx} category={category} idx={idx} />
+            <div className="col" key={idx}>
+              <CategoryCardComponent key={idx} category={category} idx={idx} />
+            </div>
           ))}
         </Row>
       </Container>

@@ -22,7 +22,7 @@ function CategoryCardComponent({ category, idx }) {
     "/images/Carousel/nature-1.jpg",
   ];
   return (
-    <Card>
+    <Card style={{ background: "#EAF2FF" }}>
       <Card.Img crossOrigin="anonymous" variant="top" src={images[idx]} />
       <Card.Body>
         <Card.Title>{category}</Card.Title>

@@ -1,7 +1,15 @@
-/* * {background-color: #EAE7DC ;} */
+
 
 :root {
   --primaryColor: #ffffff;
   --secondaryColor: #458217;
   --accentColor: #f7892d;
+  --bodyColor: #EAF2FF;
+}
+
+
+body {
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 170px;
+  
 }

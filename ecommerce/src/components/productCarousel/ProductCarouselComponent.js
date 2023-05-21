@@ -1,14 +1,14 @@
 import React from "react";
 import {Carousel} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-
+import './ProductCarouselComponent.css'
 function ProductCarouselComponent() {
 
   const cursorP = {
     cursor: "pointer"
   }
   return (
-    <Carousel>
+    <Carousel className="carousel-container">
       <Carousel.Item>
         <img
           crossOrigin="anonymous"

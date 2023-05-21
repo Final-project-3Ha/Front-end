@@ -20,7 +20,7 @@ const HeaderComponent = () => {
   const accentButtonStyle = {
     backgroundColor: accentColor,
   };
-  const navbarStyle = {
+  const  navbarStyle = {
     backgroundColor: secondaryColor,
   };
   return (
