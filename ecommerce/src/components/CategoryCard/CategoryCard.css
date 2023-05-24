@@ -1,16 +1,22 @@
 :root {
   --primaryColor: #ffffff;
   --secondaryColor: #458217;
-  --accentColor: #E48334;
-  --accentColorHover: #e48334e8;
+  --accentColor: #f7892d;
+  --accentColorHover: #f7882dd5;
 }
 
-.btn.btn-category  {
+.btn.btn-category {
+  background-color: var(--accentColor) !important;
+  border-color: var(--primaryColor) !important;
+}
+
+
+a.btn.btn-category.btn-block.btn.btn-primary:active {
   background-color: var(--accentColor);
-  border-color: var(--primaryColor)
+  border: 0;
 }
 
-.btn.btn-category:hover {
-  background-color: var(--accentColorHover);
-  border-color: var(--primaryColor)
+.btn-primary:hover {
+  background-color: var(--accentColorHover) !important;
+  border: 0 !important;
 }

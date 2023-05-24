@@ -16,12 +16,11 @@ function HomePage() {
   ];
   return (
     <>
-    
       <ProductCarouselComponent />
       <Container>
-        <Row xs={1} md={2} className="g-5 mt-2  ">
+        <Row xs={1} md={2} className="g-5 mt-2   ">
           {categories.map((category, idx) => (
-            <div className="col" key={idx}>
+            <div className="col d-flex justify-content-center" key={idx}>
               <CategoryCardComponent key={idx} category={category} idx={idx} />
             </div>
           ))}

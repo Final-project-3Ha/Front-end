@@ -12,17 +12,18 @@ function CategoryCardComponent({ category, idx }) {
   //   backgroundColor: accentColor,
   // };
   const images = [
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
-    "/images/Carousel/nature-1.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
+    "/images/Carousel/pexels-2.jpg",
   ];
   return (
-    <Card style={{ background: "#EAF2FF" }}>
+    // <Card style={{ background: "#EAF2FF" }}>
+    <Card >
       <Card.Img crossOrigin="anonymous" variant="top" src={images[idx]} />
       <Card.Body>
         <Card.Title>{category}</Card.Title>

@@ -1,11 +1,25 @@
 :root {
   --primaryColor: #ffffff;
   --secondaryColor: #458217;
-  --accentColor: #E48334;
-  --accentColorHover: #e48334e8;
+  --accentColor: #f7892d;
+  --accentColorHover: #f7882dd5;
+}
+
+.rounded-pill.bg-primary {
+  
+  background-color: var(--accentColor) !important;
+}
+
+.rounded-pill.text-light {
+    color: black !important;
 }
 
 
+.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+  /* color: var(--bs-btn-active-color); */
+  background-color: var(--accentColor) !important;
+  border-color: var(--accentColor) !important;
+}
 
 .chat-btn {
     position:fixed;

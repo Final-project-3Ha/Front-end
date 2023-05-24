@@ -10,33 +10,41 @@ import {
   Button,
   InputGroup,
 } from "react-bootstrap";
-
+import "./header.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+
 const HeaderComponent = () => {
-  // const primaryColor = "#ffffff";
-  const secondaryColor = "#458217";
+  const primaryColor = "#ffffff";
+  // const secondaryColor = "#458217";
   const accentColor = "#E48334";
   const accentButtonStyle = {
     backgroundColor: accentColor,
   };
-  const  navbarStyle = {
-    backgroundColor: secondaryColor,
+  const navbarStyle = {
+    backgroundColor: primaryColor,
   };
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
       <Container>
+        <img
+          src="/images/Carousel/Monuehh.svg"
+          alt="Monueh Logo"
+          height="100"
+          width="100"
+        />
+
         {/* <i className="bi bi-cart-dash"></i> */}
         <LinkContainer to="/">
-          <Navbar.Brand href="/">MOUNTAIN BOONS</Navbar.Brand>
+          <Navbar.Brand href="/">MONUEH</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           style={{ border: "2px solid White", padding: "5px" }}
         />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <InputGroup>
+          <Nav className="me-auto ">
+            <InputGroup className="ms-4">
               <DropdownButton
                 id="dropdown-basic-button"
                 title="All"
@@ -47,19 +55,16 @@ const HeaderComponent = () => {
                 <Dropdown.Item>Honey</Dropdown.Item>
               </DropdownButton>
               <Form.Control type="text" placeholder="Search in shop ..." />
-              <Button variant="warning" style={accentButtonStyle}>
+              <Button style={accentButtonStyle}>
                 <i className="bi bi-search text-dark"></i>
               </Button>
             </InputGroup>
           </Nav>
-          <Nav>
+          <Nav className="ms-auto">
             <LinkContainer to="/admin/orders">
               <Nav.Link>
-                Admin
-                <span
-                  className="position-absolute top-1 start-10 translate-middle p-2  border border-light rounded-circle"
-                  style={accentButtonStyle}
-                ></span>
+                Dashboard
+                
               </Nav.Link>
             </LinkContainer>
 
@@ -76,6 +81,9 @@ const HeaderComponent = () => {
               </NavDropdown.Item>
               <NavDropdown.Item>Logout</NavDropdown.Item>
             </NavDropdown>
+            <LinkContainer to="/product-list">
+              <Nav.Link>Products</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/login">
               <Nav.Link>Login</Nav.Link>
             </LinkContainer>

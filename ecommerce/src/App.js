@@ -35,8 +35,9 @@ import AdminProductsPage from "./pages/Admin/AdminAnalyticsPage";
 
 // All the components
 
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header.js";
+import Footer from "./components/Footer/Footer.js";
+import ScrollToTop from "./utils/ScrollToTop.js";
 
 // User component
 
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         <Header />
         <Routes>
           <Route element={<RoutesWithUserChatComponent />}>

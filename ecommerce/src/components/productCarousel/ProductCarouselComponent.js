@@ -8,13 +8,17 @@ function ProductCarouselComponent() {
     cursor: "pointer"
   }
   return (
-    <Carousel className="carousel-container">
+    <Carousel className="carousel-container ">
       <Carousel.Item>
         <img
           crossOrigin="anonymous"
           className="d-block w-100"
-          style={{ height: "300px", objectFit: "cover" }}
-          src="/images/Carousel/nature-3.jpg"
+          style={{
+            height: "90vh",
+            objectFit: "cover",
+            filter: "brightness(50%)",
+          }}
+          src="/images/Carousel/pexels-2.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -27,8 +31,12 @@ function ProductCarouselComponent() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          style={{ height: "300px", objectFit: "cover" }}
-          src="/images/Carousel/nature-2.jpg"
+          style={{
+            height: "90vh",
+            objectFit: "cover",
+            filter: "brightness(50%)",
+          }}
+          src="/images/Carousel/pexels-2.jpg"
           alt="Second slide"
         />
 
@@ -42,8 +50,12 @@ function ProductCarouselComponent() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          style={{ height: "300px", objectFit: "cover" }}
-          src="/images/Carousel/nature-3.jpg"
+          style={{
+            height: "90vh",
+            objectFit: "cover",
+            filter: "brightness(50%)",
+          }}
+          src="/images/Carousel/pexels-2.jpg"
           alt="Third slide"
         />
 

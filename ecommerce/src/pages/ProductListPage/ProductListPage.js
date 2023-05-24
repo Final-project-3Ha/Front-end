@@ -40,11 +40,11 @@ function ProductListPage() {
             <ProductForListComponent
               key={idx}
               images={[
-                "/images/Carousel/nature-1.jpg",
-                "/images/Carousel/nature-1.jpg",
-                "/images/Carousel/nature-1.jpg",
-                "/images/Carousel/nature-1.jpg",
-                "/images/Carousel/nature-1.jpg",
+                "/images/Carousel/pexels-2.jpg",
+                "/images/Carousel/pexels-2.jpg",
+                "/images/Carousel/pexels-2.jpg",
+                "/images/Carousel/pexels-2.jpg",
+                "/images/Carousel/pexels-2.jpg",
               ]}
               idx={idx}
             />
