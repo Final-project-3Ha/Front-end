@@ -75,6 +75,9 @@ const HeaderComponent = () => {
             </LinkContainer>
 
             <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">
+              <NavDropdown.Item eventKey="/user" as={Link} to="/user">
+                My profile
+              </NavDropdown.Item>
               <NavDropdown.Item
                 eventKey="/user/my-orders"
                 as={Link}
@@ -82,9 +85,7 @@ const HeaderComponent = () => {
               >
                 My orders
               </NavDropdown.Item>
-              <NavDropdown.Item eventKey="/user" as={Link} to="/user">
-                My profile
-              </NavDropdown.Item>
+
               <NavDropdown.Item>Logout</NavDropdown.Item>
             </NavDropdown>
             <LinkContainer to="/product-list">
