@@ -27,16 +27,25 @@ const HeaderComponent = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
       <Container>
-        <img
+        {/* <img
           src="/images/Carousel/Monuehh.svg"
           alt="Monueh Logo"
           height="100"
           width="100"
-        />
+        /> */}
 
         {/* <i className="bi bi-cart-dash"></i> */}
         <LinkContainer to="/">
-          <Navbar.Brand href="/">MONUEH</Navbar.Brand>
+          <Navbar.Brand href="/">
+            {" "}
+            <img
+              src="/images/Carousel/Monuehh.svg"
+              alt="Monueh Logo"
+              height="100"
+              width="100"
+            />
+            MONUEH
+          </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -56,16 +65,13 @@ const HeaderComponent = () => {
               </DropdownButton>
               <Form.Control type="text" placeholder="Search in shop ..." />
               <Button style={accentButtonStyle}>
-                <i className="bi bi-search text-dark"></i>
+                <i className="bi bi-search text-white"></i>
               </Button>
             </InputGroup>
           </Nav>
           <Nav className="ms-auto">
             <LinkContainer to="/admin/orders">
-              <Nav.Link>
-                Dashboard
-                
-              </Nav.Link>
+              <Nav.Link>Dashboard</Nav.Link>
             </LinkContainer>
 
             <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">

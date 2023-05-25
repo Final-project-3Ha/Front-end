@@ -39,6 +39,10 @@
 
 }
 
+.chat-btn:hover {
+    background-color: var(--accentColorHover);
+}
+
 .chat-btn .close {
 display: none;
 }
