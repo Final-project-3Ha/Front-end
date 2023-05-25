@@ -110,13 +110,14 @@ function RegisterPage() {
               </Col>
             </Row>
 
-            <Button type="submit">
+            <Button className="mb-2" type="submit">
               <Spinner
                 as="span"
                 animation="border"
                 size="sm"
                 role="status"
                 aria-hidden="true"
+                className="me-1"
               />
               Submit
             </Button>
