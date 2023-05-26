@@ -8,7 +8,7 @@ import {
   CloseButton,
   Table,
   Alert,
-  Image
+  Image,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -18,8 +18,8 @@ const onHover = {
   position: "absolute",
   left: "5px",
   top: "-10px",
-  transform: "scale(2.7)"
-}
+  transform: "scale(2.7)",
+};
 
 function AdminEditProductPage() {
   const [validated, setValidated] = useState(false);
@@ -42,15 +42,17 @@ function AdminEditProductPage() {
           </Link>
         </Col> */}
         <Col md={6}>
-          <h1 className="mb-4">Edit product</h1>
+          <h1 className="mb-4">Edit Product</h1>
           <Form noValidate validated={validated} on onSubmit={handleSubmit}>
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              name="name"
-              required
-              type="text"
-              defaultValue="Zaatar"
-            />
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                name="name"
+                required
+                type="text"
+                defaultValue="Zaatar"
+              />
+            </Form.Group>
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextareal"
@@ -201,7 +203,7 @@ function AdminEditProductPage() {
             </Form.Group>
 
             <Button variant="primary" type="submit" className="me-1">
-              update
+              Update
             </Button>
             <Link to="/admin/products">
               <Button variant="primary" type="submit">
