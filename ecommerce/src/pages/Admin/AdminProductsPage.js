@@ -2,10 +2,10 @@ import React from "react";
 import { Col, Row, Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import AdminLinksComponent from "../../components/Admin/AdminLinksComponent.js";
-import './AdminProductsPage.css';
+import "./AdminProductsPage.css";
 const deleteHandler = () => {
-  if(window.confirm('Are you sure?')) alert('product deleted!')
-}
+  if (window.confirm("Are you sure?")) alert("product deleted!");
+};
 
 function AdminProductsPage() {
   return (
@@ -49,12 +49,10 @@ function AdminProductsPage() {
                     </Button>
                   </LinkContainer>
                   {" / "}
-                  <Button className="btn-sm" onClick={deleteHandler} >
+                  <Button className="btn-sm" onClick={deleteHandler}>
                     <i className="bi bi-x-circle"></i>
                   </Button>
                 </td>
-                
-                
               </tr>
             ))}
           </tbody>
