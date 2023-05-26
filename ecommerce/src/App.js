@@ -26,12 +26,12 @@ import UserProfilePage from "./pages/User/UserProfilePage.js";
 import AdminUserPage from "./pages/Admin/AdminUserPage.js";
 import AdminEditUserPages from "./pages/Admin/AdminEditUserPage";
 import AdminAnalyticsPage from "./pages/Admin/AdminAnalyticsPage.js";
-import AdminChartsPage from "./pages/Admin/AdminChartsPage.js";
 import AdminCreateProductPage from "./pages/Admin/AdminCreateProductPage.js";
 import AdminEditProductPage from "./pages/Admin/AdminEditProductPage.js";
 import AdminOrderDetailsPage from "./pages/Admin/AdminOrderDetailsPage.js";
 import AdminOrdersPage from "./pages/Admin/AdminOrdersPage.js";
 import AdminProductsPage from "./pages/Admin/AdminProductsPage";
+import AdminChatPage from "./pages/Admin/AdminChatPage";
 
 // All the components
 
@@ -100,7 +100,7 @@ function App() {
               path="/admin/order-details"
               element={<AdminOrderDetailsPage />}
             />
-            <Route path="/admin/chats" element={<AdminChartsPage />} />
+            <Route path="/admin/chats" element={<AdminChatPage />} />
             <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
           </Route>
         </Routes>
