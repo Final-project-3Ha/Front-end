@@ -25,7 +25,7 @@ function CartPage() {
               Price: <span className="fw-bold">$200</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <LinkContainer to="/user/order-details">
+              <LinkContainer to="/user/cart-details">
                 <Button type="button">Proceed To Checkout</Button>
               </LinkContainer>
             </ListGroup.Item>

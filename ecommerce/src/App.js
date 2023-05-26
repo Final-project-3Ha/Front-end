@@ -31,7 +31,7 @@ import AdminCreateProductPage from "./pages/Admin/AdminCreateProductPage.js";
 import AdminEditProductPage from "./pages/Admin/AdminEditProductPage.js";
 import AdminOrderDetailsPage from "./pages/Admin/AdminOrderDetailsPage.js";
 import AdminOrdersPage from "./pages/Admin/AdminOrdersPage.js";
-import AdminProductsPage from "./pages/Admin/AdminAnalyticsPage";
+import AdminProductsPage from "./pages/Admin/AdminProductsPage";
 
 // All the components
 
@@ -86,7 +86,7 @@ function App() {
           <Route element={<ProtectedRoutesComponent admin={true} />}>
             <Route path="/admin/users" element={<AdminUserPages />} />
             <Route path="/admin/edit-user" element={<AdminEditUserPages />} />
-            <Route path="/admin/product" element={<AdminProductsPage />} />
+            <Route path="/admin/products" element={<AdminProductsPage />} />
             <Route
               path="/admin/create-new-product"
               element={<AdminCreateProductPage />}

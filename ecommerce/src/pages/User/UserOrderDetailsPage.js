@@ -12,7 +12,7 @@ import CartItemComponent from "../../components/CartItem/CartItemComponent.js";
 
 function UserOrderDetailsPage() {
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <h1>Order Details</h1>
         <Col md={8}>
@@ -25,8 +25,8 @@ function UserOrderDetailsPage() {
               <b>Phone</b>: +961 70118991
             </Col>
             <Col md={6}>
-              <h2>Payment method</h2>
-              <Form.Select>
+              <h2>Payment method </h2>
+              <Form.Select disabled={false}>
                 <option value="Credit Card">Credit Card</option>
                 <option value="cod">
                   Cash On Delivery (delivery may be delayed)
