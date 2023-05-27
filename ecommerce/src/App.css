@@ -91,16 +91,5 @@ a:hover {
 .form-select:focus {
   border-color: var(--accentColor)!important;
   outline: 0;
-  box-shadow: 0 0 0 0.1rem var(--accentColor) !important;
-}
-
-.form-control:focus {
-  background-color: var(--accentColor) !important;
-}
-.form-control:hover {
-  background-color: var(--accentColor) !important;
-}
-
-.form-control:active {
-  background-color: var(--accentColor) !important;
+  box-shadow: 0 0 0 0.1.5rem var(--accentColor) !important;
 }
