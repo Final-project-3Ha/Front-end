@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProductListPage.css"
+import "./ProductListPage.css";
 import { Row, Col, Container, ListGroup, Button } from "react-bootstrap";
 import PaginationComponent from "../../components/PaginationComponent.js";
 import ProductForListComponent from "../../components/ProductForListComponent.js";
@@ -8,7 +8,11 @@ import PriceFilterComponent from "../../components/filterQueryResultOptions/Pric
 import RatingFilterComponent from "../../components/filterQueryResultOptions/RatingFilterComponent.js";
 import CategoryFilterComponent from "../../components/filterQueryResultOptions/CategoryFilterComponent.js";
 import AttributesFilterComponent from "../../components/filterQueryResultOptions/AttributesFilterComponent.js";
+import axios from "axios";
+
 function ProductListPage() {
+  axios.get("/api/products").then((res) => console.log(res));
+
   return (
     <Container fluid>
       <Row>
