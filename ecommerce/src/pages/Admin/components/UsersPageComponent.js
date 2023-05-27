@@ -5,22 +5,25 @@ import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent.j
 import { Link } from "react-router-dom";
 // import axios from "axios";
 
-function UsersPageComponent({ fetchUsers }) {
+function UsersPageComponent({ fetchUsers, deleteUser }) {
   const [users, setUsers] = useState([]);
+  const [userDeleted, setUserDeleted] = useState(false);
 
-  const deleteHandler = () => {
-    if (window.confirm("Are you sure!")) alert("user deleted!");
+  const deleteHandler = async (userId) => {
+    if (window.confirm("Are you sure!")) {
+      const data = await deleteUser(userId)
+      if (data === "User deleted successfully") {
+        setUserDeleted(!userDeleted);
+      }
+    }
+
   };
 
   useEffect(() => {
     const abctrl = new AbortController();
     fetchUsers(abctrl)
       .then((res) => setUsers(res))
-      //   .catch((er) =>
-      //     console.log(
-      //       er.response.data.message ? er.response.data.message : er.response.data
-      //     )
-      //   );
+
       .catch((er) =>
         console.log(
           er && er.response && er.response.data.message
@@ -29,7 +32,10 @@ function UsersPageComponent({ fetchUsers }) {
         )
       );
     return () => abctrl.abort();
-  }, []);
+  }, [fetchUsers, userDeleted]);
+
+
+
 
   return (
     <Row className="m-5">
@@ -72,7 +78,7 @@ function UsersPageComponent({ fetchUsers }) {
                     </Button>
                   </Link>
                   {" / "}
-                  <Button className="btn-sm" onClick={deleteHandler}>
+                  <Button className="btn-sm" onClick={() => deleteHandler (user._id)}>
                     <i className="bi bi-x-circle"></i>
                   </Button>
                 </td>
