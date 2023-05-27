@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProductListPage.css"
 import { Row, Col, Container, ListGroup, Button } from "react-bootstrap";
 import PaginationComponent from "../../components/PaginationComponent.js";
 import ProductForListComponent from "../../components/ProductForListComponent.js";
@@ -29,9 +30,13 @@ function ProductListPage() {
             <ListGroup.Item>
               <AttributesFilterComponent />
             </ListGroup.Item>
-            <ListGroup.Item>
-              <Button variant="primary">Filter</Button>
-              <Button variant="danger">Reset filters</Button>
+            <ListGroup.Item className="mt-2 ">
+              <Button className="me-1 " variant="primary" id="filter">
+                Filter
+              </Button>
+              <Button variant="danger" id="reset">
+                Reset filters
+              </Button>
             </ListGroup.Item>
           </ListGroup>
         </Col>

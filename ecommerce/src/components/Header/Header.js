@@ -39,12 +39,12 @@ const HeaderComponent = () => {
           <Navbar.Brand href="/">
             {" "}
             <img
-              src="/images/Carousel/Monuehh.svg"
+              src="/images/Carousel/Monueh-hh.svg"
               alt="Monueh Logo"
               height="100"
               width="100"
             />
-            MONUEH
+            
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle
@@ -53,7 +53,7 @@ const HeaderComponent = () => {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
-            <InputGroup className="ms-4">
+            <InputGroup >
               <DropdownButton
                 id="dropdown-basic-button"
                 title="All"

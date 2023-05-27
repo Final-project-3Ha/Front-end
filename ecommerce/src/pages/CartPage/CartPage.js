@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Alert, ListGroup, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import CartItemComponent from "../../components/CartItem/CartItemComponent.js";
 
 function CartPage() {
@@ -24,10 +24,12 @@ function CartPage() {
             <ListGroup.Item>
               Price: <span className="fw-bold">$200</span>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <LinkContainer to="/user/cart-details">
-                <Button type="button">Proceed To Checkout</Button>
-              </LinkContainer>
+            <ListGroup.Item >
+              <Link to="/user/cart-details">
+                <Button variant="primary" type="submit">
+                  Proceed To Checkout
+                </Button>
+              </Link>
             </ListGroup.Item>
           </ListGroup>
         </Col>

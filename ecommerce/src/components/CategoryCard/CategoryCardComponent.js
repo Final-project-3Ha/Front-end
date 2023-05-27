@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { LinkContainer } from "react-router-bootstrap";
+// import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import'./CategoryCard.css'
 function CategoryCardComponent({ category, idx }) {
   //  const primaryColor = "#ffffff";
@@ -23,8 +24,8 @@ function CategoryCardComponent({ category, idx }) {
   ];
   return (
     // <Card style={{ background: "#EAF2FF" }}>
-    <Card >
-      <Card.Img crossOrigin="anonymous" variant="top" src={images[idx]} />
+    <Card>
+      <Card.Img crossOrigin="anonymous" variant="top" src={images[idx]}  />
       <Card.Body>
         <Card.Title>{category}</Card.Title>
         <Card.Text>
@@ -33,11 +34,11 @@ function CategoryCardComponent({ category, idx }) {
         </Card.Text>
         {/* <LinkContainer to="product-list" style={accentButtonStyle}>
           <Button variant="primary" bg="#E48334" style={accentButtonStyle}> */}
-        <LinkContainer to="product-list">
+        <Link to="product-list">
           <Button variant="primary" className=" btn btn-category btn-block">
             Go to the Category
           </Button>
-        </LinkContainer>
+        </Link>
       </Card.Body>
     </Card>
   );

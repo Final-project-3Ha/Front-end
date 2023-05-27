@@ -36,7 +36,8 @@ function UserCartDetailsPage() {
             <Row>
               <Col>
                 <Alert className="mt-3" variant="danger">
-                  Not delivered. In order to make order, fill out your profile with correct address, city etc...
+                  Not delivered. In order to make order, fill out your profile
+                  with correct address, city etc...
                 </Alert>
               </Col>
               <Col>
@@ -68,12 +69,12 @@ function UserCartDetailsPage() {
             <ListGroup.Item>
               Tax:<span className="fw-bold">included</span>{" "}
             </ListGroup.Item>
-            <ListGroup.Item style={{ color: "red" }}>
-              Total price:<span className="fw-bold">$500</span>{" "}
+            <ListGroup.Item style={{ color: "#f7892d" }}>
+              Total price:<span className="fw-bold">{" "}$500</span>{" "}
             </ListGroup.Item>
             <ListGroup.Item>
               <div className="d-grid gap-2">
-                <Button size="lg" variant="danger" type="button">
+                <Button size="lg" type="button">
                   Pay for the order
                 </Button>
               </div>

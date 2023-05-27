@@ -12,6 +12,7 @@ import {
 import AddedToCartMessageComponent from "../../components/AddedToCartMessageComponent.js";
 import { Rating } from "react-simple-star-rating";
 import ImageZoom from 'js-image-zoom';
+import { Link } from "react-router-dom";
 
 function ProductDetailsPage() {
   var options = {
@@ -33,21 +34,25 @@ function ProductDetailsPage() {
     <Container>
       <AddedToCartMessageComponent />
       <Row className="mt-5">
-        <Col style={{zIndex:1}} md={4}>
+        <Col style={{ zIndex: 1 }} md={4}>
           <div id="first">
-            <Image crossOrigin="anonymous" fluid src="/images/Carousel/pexels-2.jpg" />
+            <Image
+              crossOrigin="anonymous"
+              fluid
+              src="/images/Carousel/pexels-2.jpg"
+            />
           </div>
           <br />
           <div id="second">
-            <Image fluid src="/images/Carousel/pexels-2.jpg" />
+            <Image src="/images/Carousel/pexels-2.jpg" fluid />
           </div>
           <br />
           <div id="third">
-            <Image fluid src="/images/Carousel/pexels-2.jpg" />
+            <Image src="/images/Carousel/pexels-2.jpg" fluid />
           </div>
           <br />
           <div id="fourth">
-            <Image fluid src="/images/Carousel/pexels-2.jpg" />
+            <Image src="/images/Carousel/pexels-2.jpg" fluid />
           </div>
           <br />
         </Col>
@@ -88,7 +93,12 @@ function ProductDetailsPage() {
                   </Form.Select>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <Button variant="danger">Add to cart</Button>
+                  <Link to="">
+                    <Button variant="primary" type="submit">
+                      Add to cart
+                    </Button>
+                  </Link>
+                  {/* <Button variant="danger">Add to cart</Button> */}
                 </ListGroup.Item>
               </ListGroup>
             </Col>

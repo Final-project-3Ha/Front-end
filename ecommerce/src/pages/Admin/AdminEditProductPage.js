@@ -19,6 +19,7 @@ const onHover = {
   left: "5px",
   top: "-10px",
   transform: "scale(2.7)",
+  color: "#f7892d"
 };
 
 function AdminEditProductPage() {

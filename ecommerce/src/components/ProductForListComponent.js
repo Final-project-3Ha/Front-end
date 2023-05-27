@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
-import {LinkContainer }from 'react-router-bootstrap'
+// import {LinkContainer }from 'react-router-bootstrap'
+import { Link } from "react-router-dom";
 
 function ProductForListComponent({images,idx}) {
   return (
@@ -34,9 +35,9 @@ function ProductForListComponent({images,idx}) {
             </Card.Text>
             <Card.Text className="h4" style={{ marginBottom: "20px" }}>
               10${" "}
-              <LinkContainer to="/product-details">
+              <Link to="/product-details">
                 <Button variant="primary">See Product</Button>
-              </LinkContainer>
+              </Link>
             </Card.Text>
           </Card.Body>
         </Col>

@@ -1,15 +1,89 @@
-
-
 :root {
   --primaryColor: #ffffff;
   --secondaryColor: #458217;
+  --secondaryColorAlert: #458217d5;
   --accentColor: #f7892d;
-  --bodyColor: #EAF2FF;
+  --accentColorHover: #f7882dd5;
+}
+
+body {
+  font-family: "Rubik", sans-serif !important;
+  margin-bottom: 170px;
+}
+
+:root {
+  --primaryColor: #ffffff;
+
+  --secondaryColor: #458217;
+
+  --secondaryColorAlert: #458217d5;
+
+  --accentColor: #f7892d;
+  
+  --accentColorHover: #f7882dd5;
+}
+
+.alert-primary {
+  background-color: var(--secondaryColorAlert) !important;
+  color: var(--primaryColor) !important;
+  border: 0 !important;
+
+}
+
+.alert-info {
+  background-color: var(--secondaryColorAlert) !important;
+  color: var(--primaryColor) !important;
+  border: 0 !important;
+}
+
+.alert-success {
+  background-color: var(--secondaryColorAlert) !important;
+  color: var(--primaryColor) !important;
+  border: 0 !important;
+}
+
+.alert-danger {
+  background-color: var(--accentColorHover) !important;
+}
+
+/* Stars Color */
+
+.style-module_fillIcons__6---A {
+  color: var(--accentColorHover) !important;
+}
+
+a {
+  color:var(--secondaryColor)!important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--accentColor) !important;
+}
+
+.text-danger {
+   color: var(--accentColor) !important;
+}
+
+.text-danger {
+  --bs-text-opacity: 1;
+  color: rgba(var(--accentColor), var(--accentColor)) !important;
 }
 
 
-body {
-  font-family: 'Rubik', sans-serif;
-  margin-bottom: 170px;
-  
+.btn-secondary{
+   background-color: var(--accentColor) !important;
+  color: var(--primaryColor) !important;
+  border: 0 !important;
+
+}
+
+.form-control:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem var(--accentColor) !important;
+}
+
+.rounded-pill {
+   background-color: var(--accentColor) !important;
+
 }

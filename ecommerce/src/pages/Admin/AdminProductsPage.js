@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import AdminLinksComponent from "../../components/Admin/AdminLinksComponent.js";
 import "./AdminProductsPage.css";
 const deleteHandler = () => {
@@ -43,11 +44,11 @@ function AdminProductsPage() {
                 <td>{item.price}</td>
                 <td>{item.category} </td>
                 <td>
-                  <LinkContainer to="/admin/edit-product">
+                  <Link to="/admin/edit-product">
                     <Button className="btn-sm" id="btn-edit">
                       <i className="bi bi-pencil-square"></i>
                     </Button>
-                  </LinkContainer>
+                  </Link>
                   {" / "}
                   <Button className="btn-sm" onClick={deleteHandler}>
                     <i className="bi bi-x-circle"></i>

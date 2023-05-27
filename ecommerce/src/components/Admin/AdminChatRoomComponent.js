@@ -8,8 +8,10 @@ function AdminChatRoomComponent() {
   return (
     <>
       <Toast className="ms-4 mb-5" show={toast1} onClose={close1}>
-        <Toast.Header>
-          <strong className="me-auto">Chat with Hssn</strong>
+        <Toast.Header style={{ backgroundColor: "#f7892d" }}>
+          <h5 className="me-auto" style={{ color: "#ffffff" }}>
+            Chat with Hssn
+          </h5>
         </Toast.Header>
         <Toast.Body>
           <div style={{ maxHeight: "500px", overflow: "auto" }}>
