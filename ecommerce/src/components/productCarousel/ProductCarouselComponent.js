@@ -1,12 +1,13 @@
 import React from "react";
-import {Carousel} from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import './ProductCarouselComponent.css'
+import "./ProductCarouselComponent.css";
 function ProductCarouselComponent() {
+  const monueh = "MONUEH SHOP";
 
   const cursorP = {
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  };
   return (
     <Carousel className="carousel-container ">
       <Carousel.Item>
@@ -23,9 +24,9 @@ function ProductCarouselComponent() {
         />
         <Carousel.Caption>
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>First slide label</h3>
+            <h3>MONUEH SHOP</h3>
           </LinkContainer>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Your Place To Buy Handmade Products From the Mountain Village</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -42,9 +43,11 @@ function ProductCarouselComponent() {
 
         <Carousel.Caption>
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>Second slide label</h3>
+            <h3>{monueh}</h3>
           </LinkContainer>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>
+            Shop At Your Convenience And Choose The Most Delicious Organic Food
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -61,10 +64,11 @@ function ProductCarouselComponent() {
 
         <Carousel.Caption>
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>Third slide label</h3>
+            <h3>{monueh}</h3>
           </LinkContainer>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            For Nature Lovers and Who Enjoy Hiking, Camping, And Other Outdoor
+            Activities
           </p>
         </Carousel.Caption>
       </Carousel.Item>
