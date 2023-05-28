@@ -11,24 +11,36 @@ import {
 } from "react-bootstrap";
 import AddedToCartMessageComponent from "../../components/AddedToCartMessageComponent.js";
 import { Rating } from "react-simple-star-rating";
-import ImageZoom from 'js-image-zoom';
+import ImageZoom from "js-image-zoom";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/actions/cartActions.js";
+
+// Redux actions
 
 function ProductDetailsPage() {
+  const dispatch = useDispatch();
+  const addToCartHandler = () => {
+    dispatch(addToCart());
+  };
+
+  const products = useSelector ((state) => state.cart.value)
+
+
   var options = {
     // width: 400,
     // zoomWidth: 500,
     // fillContainer: true,
     // zoomPosition: "botttom"
-    scale:2,
+    scale: 2,
     offset: { vertical: 0, horizontal: 0 },
   };
-    useEffect(() =>{
-      new ImageZoom(document.getElementById("first"), options);
-      new ImageZoom(document.getElementById("second"), options);
-      new ImageZoom(document.getElementById("third"), options);
-      new ImageZoom(document.getElementById("fourth"), options);
-    })
+  useEffect(() => {
+    new ImageZoom(document.getElementById("first"), options);
+    new ImageZoom(document.getElementById("second"), options);
+    new ImageZoom(document.getElementById("third"), options);
+    new ImageZoom(document.getElementById("fourth"), options);
+  });
 
   return (
     <Container>
@@ -61,7 +73,7 @@ function ProductDetailsPage() {
             <Col md={8}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h1>Product name</h1>{" "}
+                  <h1>Product name {products}</h1>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Rating readonly size={20} initialValue={4} /> (1)
@@ -94,7 +106,11 @@ function ProductDetailsPage() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Link to="">
-                    <Button variant="primary" type="submit">
+                    <Button
+                      onClick={addToCartHandler}
+                      variant="primary"
+                      type="submit"
+                    >
                       Add to cart
                     </Button>
                   </Link>
