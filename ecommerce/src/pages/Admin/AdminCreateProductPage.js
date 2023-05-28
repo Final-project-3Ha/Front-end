@@ -115,7 +115,7 @@ function AdminCreateProductPage() {
                 </Form.Group>
               </Col>
             </Row>
-            <Row hover>
+            <Row hover="true">
               <Table>
                 <thead>
                   <tr>
