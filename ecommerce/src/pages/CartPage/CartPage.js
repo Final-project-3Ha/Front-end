@@ -11,7 +11,18 @@ function CartPage() {
           <h1>Shopping Cart</h1>
           <ListGroup variant="flush">
             {Array.from({ length: 3 }).map((item, idx) => (
-              <CartItemComponent key={idx} />
+              <CartItemComponent
+                item={{
+                  image: {
+                    path: "/images/Carousel/pexels-2.jpg",
+                  },
+                  name: "Product Name",
+                  price: 10,
+                  quantity: 10,
+                  count: 10,
+                }}
+                key={idx}
+              />
             ))}
           </ListGroup>
           <Alert variant="info">Your cart is empty</Alert>
@@ -24,7 +35,7 @@ function CartPage() {
             <ListGroup.Item>
               Price: <span className="fw-bold">$200</span>
             </ListGroup.Item>
-            <ListGroup.Item >
+            <ListGroup.Item>
               <Link to="/user/cart-details">
                 <Button variant="primary" type="submit">
                   Proceed To Checkout

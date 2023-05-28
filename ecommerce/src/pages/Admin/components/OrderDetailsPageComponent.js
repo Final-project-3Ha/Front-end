@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import CartItemComponent from "../../../components/CartItem/CartItemComponent.js";
 
-function OrderDetailsPageComponent({ getOrder }) {
+function OrderDetailsPageComponent({ getOrder, markAsDelivered }) {
   const { id } = useParams();
 
   const [userInfo, setUserInfo] = useState({});
@@ -23,6 +23,7 @@ function OrderDetailsPageComponent({ getOrder }) {
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [orderButtonMessage, setOrderButtonMessage] =
     useState("Mark as delivered");
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     getOrder(id)
@@ -38,6 +39,7 @@ function OrderDetailsPageComponent({ getOrder }) {
           setOrderButtonMessage("Order is finished");
           setButtonDisabled(true);
         }
+        setCartItems(order.cartItems);
       })
       .catch((er) =>
         console.log(
@@ -92,8 +94,9 @@ function OrderDetailsPageComponent({ getOrder }) {
           <br />
           <h2>Order items</h2>
           <ListGroup variant="flush">
-            {Array.from({ length: 3 }).map((item, idx) => (
-              <CartItemComponent key={idx} />
+            
+            {cartItems.map((item, idx) => (
+              <CartItemComponent key={idx} item={item} orderCreated={true} />
             ))}
           </ListGroup>
         </Col>
@@ -117,7 +120,26 @@ function OrderDetailsPageComponent({ getOrder }) {
             </ListGroup.Item>
             <ListGroup.Item>
               <div className="d-grid gap-2">
-                <Button size="lg" type="button" disabled={buttonDisabled}>
+                <Button
+                  size="lg"
+                  onClick={() =>
+                    markAsDelivered(id)
+                      .then((res) => {
+                        if (res) {
+                          setIsDelivered(true);
+                        }
+                      })
+                      .catch((er) =>
+                        console.log(
+                          er.response.data.message
+                            ? er.response.data.message
+                            : er.response.data
+                        )
+                      )
+                  }
+                  type="button"
+                  disabled={buttonDisabled}
+                >
                   {orderButtonMessage}
                 </Button>
               </div>

@@ -51,7 +51,18 @@ function UserCartDetailsPage() {
           <h2>Order items</h2>
           <ListGroup variant="flush">
             {Array.from({ length: 3 }).map((item, idx) => (
-              <CartItemComponent key={idx} />
+              <CartItemComponent
+                item={{
+                  image: {
+                    path: "/images/Carousel/pexels-2.jpg",
+                  },
+                  name: "Product Name",
+                  price: 10,
+                  quantity: 10,
+                  count: 10,
+                }}
+                key={idx}
+              />
             ))}
           </ListGroup>
         </Col>
@@ -70,7 +81,7 @@ function UserCartDetailsPage() {
               Tax:<span className="fw-bold">included</span>{" "}
             </ListGroup.Item>
             <ListGroup.Item style={{ color: "#f7892d" }}>
-              Total price:<span className="fw-bold">{" "}$500</span>{" "}
+              Total price:<span className="fw-bold"> $500</span>{" "}
             </ListGroup.Item>
             <ListGroup.Item>
               <div className="d-grid gap-2">
