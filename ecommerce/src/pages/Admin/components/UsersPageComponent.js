@@ -23,13 +23,12 @@ function UsersPageComponent({ fetchUsers, deleteUser }) {
     const abctrl = new AbortController();
     fetchUsers(abctrl)
       .then((res) => setUsers(res))
-
       .catch((er) =>
-        console.log(
-          er && er.response && er.response.data.message
+        setUsers([{
+          name:er && er.response && er.response.data.message
             ? er.response.data.message
             : er && er.response && er.response.data
-        )
+        }])
       );
     return () => abctrl.abort();
   }, [fetchUsers, userDeleted]);
