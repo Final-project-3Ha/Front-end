@@ -5,27 +5,38 @@ import Spinner from "react-bootstrap/Spinner";
 
 function LoginPageComponent({ loginUserApiRequest }) {
   const [validated, setValidated] = useState(false);
+  const [loginUserResponseState, setLoginUserResponseState] = useState({
+    success: "",
+    error: "",
+    loading: false,
+  });
 
   const handleSubmit = (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+    event.stopPropagation();
     const form = event.currentTarget.elements;
 
     const email = form.email.value;
     const password = form.password.value;
     const doNotLogout = form.doNotLogout.checked;
 
-
     if (event.currentTarget.checkValidity() === true && email && password) {
-        loginUserApiRequest(email, password, doNotLogout)
-          .then((res) => console.log(res))
-          .catch((er) =>
-            console.log(
-              er.response.data.message
-                ? er.response.data.message
-                : er.response.data
-            )
-          );
+      setLoginUserResponseState({ loading: true });
+      loginUserApiRequest(email, password, doNotLogout)
+        .then((res) => {
+          setLoginUserResponseState({
+            success: res.success,
+            loading: false,
+            error: "",
+          });
+        })
+        .catch((er) =>
+          setLoginUserResponseState({
+            error: er.response.data.message
+              ? er.response.data.message
+              : er.response.data,
+          })
+        );
     }
 
     setValidated(true);
@@ -73,18 +84,29 @@ function LoginPageComponent({ loginUserApiRequest }) {
             </Row>
 
             <Button className="mb-2" type="submit">
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-                className="me-1"
-              />
+              {loginUserResponseState &&
+              loginUserResponseState.loading === true ? (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-1"
+                />
+              ) : (
+                ""
+              )}
               Login
             </Button>
-            <Alert show={true} variant="danger">
-              Wrong credentials{" "}
+            <Alert
+              show={
+                loginUserResponseState &&
+                loginUserResponseState.error === "wrong credentials"
+              }
+              variant="danger"
+            >
+              Wrong credentials
             </Alert>
           </Form>
         </Col>

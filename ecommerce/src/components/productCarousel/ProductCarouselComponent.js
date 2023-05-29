@@ -18,6 +18,7 @@ function ProductCarouselComponent() {
             height: "90vh",
             objectFit: "cover",
             filter: "brightness(50%)",
+            speed: 1000
           }}
           src="/images/Carousel/pexels-2.jpg"
           alt="First slide"
