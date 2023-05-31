@@ -2,7 +2,7 @@ import React from "react";
 import { Pagination } from "react-bootstrap";
 function PaginationComponent() {
   return (
-    <Pagination>
+    <Pagination >
       <Pagination.Prev />
       <Pagination.Item>{1}</Pagination.Item>
 

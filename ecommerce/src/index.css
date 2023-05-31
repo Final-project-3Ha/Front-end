@@ -4,12 +4,12 @@ html {
 }
 
 body {
-  margin-bottom: 170px !important;
+  /* margin-bottom: 170px !important; */
   background-color: #EAF2FF;
 }
 
 footer {
-  position: absolute !important;
+  position: relative !important;
   width: 100% !important;
   bottom: 0;
 }

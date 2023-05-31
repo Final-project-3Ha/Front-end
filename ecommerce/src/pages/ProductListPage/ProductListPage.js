@@ -14,7 +14,7 @@ function ProductListPage() {
   axios.get("/api/products").then((res) => console.log(res));
 
   return (
-    <Container fluid>
+    <Container fluid className="mt-5">
       <Row>
         <Col md={3}>
           <ListGroup variant="flush">
@@ -45,21 +45,23 @@ function ProductListPage() {
           </ListGroup>
         </Col>
         <Col md={9}>
-          {Array.from({ length: 5 }).map((_, idx) => (
+          {Array.from({ length: 2 }).map((_, idx) => (
             <ProductForListComponent
               key={idx}
               images={[
-                "/images/Carousel/pexels-2.jpg",
-                "/images/Carousel/pexels-2.jpg",
-                "/images/Carousel/pexels-2.jpg",
                 "/images/Carousel/pexels-2.jpg",
                 "/images/Carousel/pexels-2.jpg",
               ]}
               idx={idx}
             />
           ))}
-          <PaginationComponent />
         </Col>
+        <Row className="mb-4">
+          <Col md={3}></Col>
+          <Col md={9} >
+            <PaginationComponent  />
+          </Col>
+        </Row>
       </Row>
     </Container>
   );

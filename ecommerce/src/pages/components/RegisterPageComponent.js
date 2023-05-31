@@ -72,7 +72,7 @@ const RegisterPageComponent = ({
   };
 
   return (
-    <Container>
+    <Container className="mb-4">
       <Row className="mt-5 justify-content-md-center">
         <Col md={6}>
           <h1>Register</h1>

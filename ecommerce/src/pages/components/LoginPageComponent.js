@@ -42,8 +42,8 @@ function LoginPageComponent({
           }
 
           if (res.success === "user logged in" && !res.userLoggedIn.isAdmin)
-          //   navigate("/user", { replace: true });
-          // else navigate("/admin/orders", { replace: true });
+            //   navigate("/user", { replace: true });
+            // else navigate("/admin/orders", { replace: true });
 
             window.location.href = "/user";
           else window.location.href = "/admin/orders";
@@ -61,7 +61,7 @@ function LoginPageComponent({
   };
 
   return (
-    <Container>
+    <Container className="mb-5">
       <Row className="mt-5 justify-content-md-center">
         <Col md={6}>
           <h1>Login</h1>

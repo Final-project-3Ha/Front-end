@@ -1,4 +1,5 @@
 import React from "react";
+// import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -11,12 +12,11 @@ import {
   Button,
 } from "react-bootstrap";
 import CartItemComponent from "../../../components/CartItem/CartItemComponent.js";
-import { logout } from "../../../redux/actions/userAction.js";
-import { useDispatch } from "react-redux";
+// import { logout } from "../../../redux/actions/userAction.js";
 
 function OrderDetailsPageComponent({ getOrder, markAsDelivered }) {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [userInfo, setUserInfo] = useState({});
   const [paymentMethod, setPaymentMethod] = useState("");
@@ -45,10 +45,11 @@ function OrderDetailsPageComponent({ getOrder, markAsDelivered }) {
         setCartItems(order.cartItems);
       })
       .catch(
-        (er) => dispatch(logout())
-        // console.log(
-        //   er.response.data.message ? er.response.data.message : er.response.data
-        // )
+        (er) => 
+           console.log(
+          er.response.data.message ? er.response.data.message : er.response.data
+        )
+     
       );
   }, [isDelivered, id]);
 

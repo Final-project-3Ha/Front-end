@@ -1,28 +1,28 @@
 import React from "react";
+// import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { Col, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent";
-import { logout } from "../../../redux/actions/userAction.js";
-import { useDispatch } from "react-redux";
+// import { logout } from "../../../redux/actions/userAction.js";
 
 function OrdersPageComponent({ getOrders }) {
+  // const dispatch = useDispatch();
   const [orders, setOrders] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     getOrders()
       .then((orders) => setOrders(orders))
       .catch(
-        (er) => dispatch(logout())
-        // setOrders([
-        //   {
-        //     name:
-        //       er && er.response && er.response.data.message
-        //         ? er.response.data.message
-        //         : er && er.response && er.response.data,
-        //   },
-        // ])
+        (er) => 
+        setOrders([
+          {
+            name:
+              er && er.response && er.response.data.message
+                ? er.response.data.message
+                : er && er.response && er.response.data,
+          },
+        ])
       );
     console.log(orders);
   }, []);

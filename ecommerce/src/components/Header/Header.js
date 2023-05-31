@@ -1,3 +1,5 @@
+import React , { useState , useEffect} from "react";
+import { useDispatch } from "react-redux";
 import {
   Navbar,
   Nav,
@@ -14,12 +16,14 @@ import "./header.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { logout } from "../../redux/actions/userAction";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
-  const primaryColor = "#ffffff";
+  const primaryColor = "#f3f5fa";
   // const secondaryColor = "#458217";
+  const navigate = useNavigate();
   const accentColor = "#E48334";
   const accentButtonStyle = {
     backgroundColor: accentColor,
@@ -27,6 +31,14 @@ const HeaderComponent = () => {
   const navbarStyle = {
     backgroundColor: primaryColor,
   };
+  const handelLogoutButton = () => {
+    dispatch({ type: "LOGOUT_USER" });
+    navigate("/login");
+  };
+  const [isAdmin , setIsAdmin] = useState(false);
+useEffect(() => {
+console.log(JSON.parse(localStorage.userInfo));
+} , [])
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
       <Container>
@@ -51,7 +63,7 @@ const HeaderComponent = () => {
         </LinkContainer>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          style={{ border: "2px solid White", padding: "5px" }}
+          style={{ padding: "5px" }}
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
@@ -72,9 +84,9 @@ const HeaderComponent = () => {
             </InputGroup>
           </Nav>
           <Nav className="ms-auto">
-            <LinkContainer to="/admin/orders">
+           {isAdmin &&<LinkContainer to="/admin/orders">
               <Nav.Link>Dashboard</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> } 
 
             <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">
               <NavDropdown.Item eventKey="/user" as={Link} to="/user">
@@ -88,7 +100,7 @@ const HeaderComponent = () => {
                 My orders
               </NavDropdown.Item>
 
-              <NavDropdown.Item onClick={() => dispatch(logout())}>
+              <NavDropdown.Item onClick={handelLogoutButton}>
                 Logout
               </NavDropdown.Item>
             </NavDropdown>

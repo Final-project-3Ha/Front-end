@@ -32,7 +32,9 @@ function ProtectedRoutesComponent({ admin }) {
   // );
 
   if (isAuth && admin && isAuth.role !== "admin") {
-    return <Navigate to="/login" />;
+    // return <Navigate to="/login" />;
+    return <Outlet />;
+
   } else if (isAuth && admin) {
     return <Outlet />;
   } else if (isAuth && !admin) {

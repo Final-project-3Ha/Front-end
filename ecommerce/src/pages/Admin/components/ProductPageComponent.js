@@ -1,10 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Col, Row, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent.js";
 import "../AdminProductsPage.css";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/actions/userAction.js";
 
 
@@ -27,12 +27,12 @@ function ProductPageComponent({ fetchProducts, deleteProduct }) {
     fetchProducts(abctrl)
       .then((res) => setProducts(res))
       .catch(
-        (er) => dispatch(logout())
-        // setProducts([
-        //   {name:er && er.response && er.response.data.message
-        //     ? er.response.data.message
-        //     : er && er.response && er.response.data}
-        // ])
+        (er) => 
+        setProducts([
+          {name:er && er.response && er.response.data.message
+            ? er.response.data.message
+            : er && er.response && er.response.data}
+        ])
       );
     return () => abctrl.abort();
   }, [fetchProducts, productDeleted]);

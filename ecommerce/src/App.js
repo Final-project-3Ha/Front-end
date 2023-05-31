@@ -42,8 +42,20 @@ import ScrollToTop from "./utils/ScrollToTop.js";
 // User component
 
 import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatComponent";
+// import { useEffect, useState } from "react";
 
 function App() {
+  // const [loggedIn, setLoggedIn] = useState(true);
+  // const [isAdmin, setIsAdmin] = useState(true);
+  // const [isUser, setIsUser] = useState(true);
+  // const handleLoggedIn = () => {
+  //   localStorage.getItem("userInfo") ? setLoggedIn(true) : setLoggedIn(false);
+  // }
+
+  // useEffect(()=> {
+  //   handleLoggedIn()
+  // }, [])
+
   return (
     <>
       <BrowserRouter>
@@ -83,7 +95,9 @@ function App() {
 
           {/* Admin Protected Routes */}
 
-          <Route element={<ProtectedRoutesComponent admin={true} />}>
+          <Route
+            element={<ProtectedRoutesComponent admin={true} />}
+          >
             <Route path="/admin/users" element={<AdminUserPage />} />
             <Route path="/admin/edit-user" element={<AdminEditUserPages />} />
             <Route path="/admin/products" element={<AdminProductsPage />} />

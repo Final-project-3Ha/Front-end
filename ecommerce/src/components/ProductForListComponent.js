@@ -6,15 +6,18 @@ import { Link } from "react-router-dom";
 
 function ProductForListComponent({images,idx}) {
   return (
-    <Card style={{ marginTop: "8px", marginBottom: "50px" }}>
+    <Card
+      style={{
+        marginTop: "8px",
+        marginBottom: "40px",
+        backgroundColor: "#f3f5fa",
+      }}
+    >
       {/* // <Card style={{ width: "80rem", marginTop: "30px", marginBottom: "50px",marginLeft:"50px", }}> */}
       <Row>
         <Col lg={5}>
           {/* <Card.Img variant="top" src="/images/Carousel/nature-1.jpg" /> */}
-          <Card.Img
-            variant="top"
-            src={images[idx]}
-          />
+          <Card.Img variant="top" src={images[idx]} />
         </Col>
 
         <Col lg={7}>
