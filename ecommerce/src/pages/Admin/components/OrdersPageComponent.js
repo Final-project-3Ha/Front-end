@@ -3,22 +3,26 @@ import { useState, useEffect } from "react";
 import { Col, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent";
+import { logout } from "../../../redux/actions/userAction.js";
+import { useDispatch } from "react-redux";
 
 function OrdersPageComponent({ getOrders }) {
   const [orders, setOrders] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getOrders()
       .then((orders) => setOrders(orders))
-      .catch((er) =>
-        setOrders([
-          {
-            name:
-              er && er.response && er.response.data.message
-                ? er.response.data.message
-                : er && er.response && er.response.data,
-          },
-        ])
+      .catch(
+        (er) => dispatch(logout())
+        // setOrders([
+        //   {
+        //     name:
+        //       er && er.response && er.response.data.message
+        //         ? er.response.data.message
+        //         : er && er.response && er.response.data,
+        //   },
+        // ])
       );
     console.log(orders);
   }, []);
@@ -47,14 +51,18 @@ function OrdersPageComponent({ getOrders }) {
               <tr key={idx}>
                 <td>{idx + 1}</td>
                 <td>
-                  {order.user !== null ? (
+                  {order.user && order.user !== null ? (
                     <>
                       {order.user.name} {order.user.lastName}
                     </>
                   ) : null}
                 </td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.orderTotal.cartSubtotal}</td>
+                <td>
+                  {order.createdAt ? order.createdAt.substring(0, 10) : "N/A"}
+                </td>
+                <td>
+                  {order.orderTotal ? order.orderTotal.cartSubtotal : "N/A"}
+                </td>
                 <td>
                   {orders.isDelivered ? (
                     <i className="bi bi-check-lg text-success"></i>

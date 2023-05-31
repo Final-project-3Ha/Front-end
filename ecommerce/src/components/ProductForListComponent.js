@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function ProductForListComponent({images,idx}) {
   return (
-    <Card style={{ marginTop: "30px", marginBottom: "50px" }}>
+    <Card style={{ marginTop: "8px", marginBottom: "50px" }}>
       {/* // <Card style={{ width: "80rem", marginTop: "30px", marginBottom: "50px",marginLeft:"50px", }}> */}
       <Row>
         <Col lg={5}>

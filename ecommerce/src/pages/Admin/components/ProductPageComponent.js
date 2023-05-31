@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent.js";
 import "../AdminProductsPage.css";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/actions/userAction.js";
+
 
 function ProductPageComponent({ fetchProducts, deleteProduct }) {
   const [products, setProducts] = useState([]);
   const [productDeleted, setProductDeleted] = useState(false);
+  const dispatch = useDispatch();
 
   const deleteHandler = async (productId) => {
     if (window.confirm("Are you sure?")) {
@@ -22,12 +26,13 @@ function ProductPageComponent({ fetchProducts, deleteProduct }) {
     const abctrl = new AbortController();
     fetchProducts(abctrl)
       .then((res) => setProducts(res))
-      .catch((er) =>
-        setProducts([
-          {name:er && er.response && er.response.data.message
-            ? er.response.data.message
-            : er && er.response && er.response.data}
-        ])
+      .catch(
+        (er) => dispatch(logout())
+        // setProducts([
+        //   {name:er && er.response && er.response.data.message
+        //     ? er.response.data.message
+        //     : er && er.response && er.response.data}
+        // ])
       );
     return () => abctrl.abort();
   }, [fetchProducts, productDeleted]);

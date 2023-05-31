@@ -2,7 +2,7 @@ import UsersPageComponent from "./components/UsersPageComponent.js";
 import axios from "axios";
 
 const fetchUsers = async (abctrl) => {
-  const { data } = await axios.get("/api/users", {
+  const { data } = await axios.get('/api/users', {
     signal: abctrl.signal,
   });
   return data;
@@ -10,7 +10,7 @@ const fetchUsers = async (abctrl) => {
 
 
 const deleteUser = async (userId) => {
-  const {data} = await axios.delete (`/api/users/${userId}`);
+  const { data } = await axios.delete(`/api/users/${userId}`);
   return data;
 }
 

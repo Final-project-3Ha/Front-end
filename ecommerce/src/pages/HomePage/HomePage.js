@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Container } from "react-bootstrap";
+import { Row,Col, Container } from "react-bootstrap";
 import ProductCarouselComponent from "../../components/productCarousel/ProductCarouselComponent.js";
 import CategoryCardComponent from "../../components/CategoryCard/CategoryCardComponent.js";
 
@@ -18,11 +18,12 @@ function HomePage() {
     <>
       <ProductCarouselComponent />
       <Container>
-        <Row xs={1} md={2} className="g-5 mt-2   ">
+        <h2 className="mt-4 mb-4 ">Categories</h2>
+        <Row xs={1} md={2} className="g-5 mb-5">
           {categories.map((category, idx) => (
-            <div className="col d-flex justify-content-center" key={idx}>
-              <CategoryCardComponent key={idx} category={category} idx={idx} />
-            </div>
+            <Col key={idx} className="d-flex justify-content-center">
+              <CategoryCardComponent category={category} idx={idx} />
+            </Col>
           ))}
         </Row>
       </Container>

@@ -3,13 +3,20 @@ import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 
-function LoginPageComponent({ loginUserApiRequest }) {
+function LoginPageComponent({
+  loginUserApiRequest,
+  reduxDispatch,
+  setReduxUserState,
+}) {
+  // const [user,setUser]= useState();
   const [validated, setValidated] = useState(false);
   const [loginUserResponseState, setLoginUserResponseState] = useState({
     success: "",
     error: "",
     loading: false,
   });
+
+  // const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,6 +36,17 @@ function LoginPageComponent({ loginUserApiRequest }) {
             loading: false,
             error: "",
           });
+
+          if (res.userLoggedIn) {
+            reduxDispatch(setReduxUserState(res.userLoggedIn));
+          }
+
+          if (res.success === "user logged in" && !res.userLoggedIn.isAdmin)
+          //   navigate("/user", { replace: true });
+          // else navigate("/admin/orders", { replace: true });
+
+            window.location.href = "/user";
+          else window.location.href = "/admin/orders";
         })
         .catch((er) =>
           setLoginUserResponseState({

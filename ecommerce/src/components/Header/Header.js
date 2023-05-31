@@ -13,8 +13,11 @@ import {
 import "./header.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import { logout } from "../../redux/actions/userAction";
+import { useDispatch } from "react-redux";
 
 const HeaderComponent = () => {
+  const dispatch = useDispatch();
   const primaryColor = "#ffffff";
   // const secondaryColor = "#458217";
   const accentColor = "#E48334";
@@ -44,7 +47,6 @@ const HeaderComponent = () => {
               height="100"
               width="100"
             />
-            
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle
@@ -53,7 +55,7 @@ const HeaderComponent = () => {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
-            <InputGroup >
+            <InputGroup>
               <DropdownButton
                 id="dropdown-basic-button"
                 title="All"
@@ -86,7 +88,9 @@ const HeaderComponent = () => {
                 My orders
               </NavDropdown.Item>
 
-              <NavDropdown.Item>Logout</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => dispatch(logout())}>
+                Logout
+              </NavDropdown.Item>
             </NavDropdown>
             <LinkContainer to="/product-list">
               <Nav.Link>Products</Nav.Link>

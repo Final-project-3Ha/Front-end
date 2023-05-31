@@ -15,26 +15,26 @@ function ProductCarouselComponent() {
           crossOrigin="anonymous"
           className="d-block w-100"
           style={{
-            height: "90vh",
+            height: "87vh",
             objectFit: "cover",
             filter: "brightness(50%)",
-            speed: 1000
+            speed: 1000,
           }}
           src="/images/Carousel/pexels-2.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
+        <Carousel.Caption >
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>MONUEH SHOP</h3>
+            <h1>{monueh}</h1>
           </LinkContainer>
-          <p>Your Place To Buy Handmade Products From the Mountain Village</p>
+          <h4>Your Place To Buy Handmade Products From the Mountain Village</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
           style={{
-            height: "90vh",
+            height: "87vh",
             objectFit: "cover",
             filter: "brightness(50%)",
           }}
@@ -44,18 +44,18 @@ function ProductCarouselComponent() {
 
         <Carousel.Caption>
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>{monueh}</h3>
+            <h1>{monueh}</h1>
           </LinkContainer>
-          <p>
+          <h4>
             Shop At Your Convenience And Choose The Most Delicious Organic Food
-          </p>
+          </h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
           style={{
-            height: "90vh",
+            height: "87vh",
             objectFit: "cover",
             filter: "brightness(50%)",
           }}
@@ -65,12 +65,12 @@ function ProductCarouselComponent() {
 
         <Carousel.Caption>
           <LinkContainer style={cursorP} to="/product-details">
-            <h3>{monueh}</h3>
+            <h1>{monueh}</h1>
           </LinkContainer>
-          <p>
+          <h4>
             For Nature Lovers and Who Enjoy Hiking, Camping, And Other Outdoor
             Activities
-          </p>
+          </h4>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

@@ -3,38 +3,38 @@ import { useState, useEffect } from "react";
 import { Col, Row, Table, Button } from "react-bootstrap";
 import AdminLinksComponent from "../../../components/Admin/AdminLinksComponent.js";
 import { Link } from "react-router-dom";
+import { logout } from "../../../redux/actions/userAction.js";
+import { useDispatch } from "react-redux";
 // import axios from "axios";
 
 function UsersPageComponent({ fetchUsers, deleteUser }) {
   const [users, setUsers] = useState([]);
   const [userDeleted, setUserDeleted] = useState(false);
+  const dispatch = useDispatch();
 
   const deleteHandler = async (userId) => {
     if (window.confirm("Are you sure!")) {
-      const data = await deleteUser(userId)
+      const data = await deleteUser(userId);
       if (data === "User deleted successfully") {
         setUserDeleted(!userDeleted);
       }
     }
-
   };
 
   useEffect(() => {
     const abctrl = new AbortController();
     fetchUsers(abctrl)
       .then((res) => setUsers(res))
-      .catch((er) =>
-        setUsers([{
-          name:er && er.response && er.response.data.message
-            ? er.response.data.message
-            : er && er.response && er.response.data
-        }])
+      .catch(
+        (er) => dispatch(logout())
+        // setUsers([{
+        //   name:er && er.response && er.response.data.message
+        //     ? er.response.data.message
+        //     : er && er.response && er.response.data
+        // }])
       );
     return () => abctrl.abort();
   }, [fetchUsers, userDeleted]);
-
-
-
 
   return (
     <Row className="m-5">
@@ -77,7 +77,10 @@ function UsersPageComponent({ fetchUsers, deleteUser }) {
                     </Button>
                   </Link>
                   {" / "}
-                  <Button className="btn-sm" onClick={() => deleteHandler (user._id)}>
+                  <Button
+                    className="btn-sm"
+                    onClick={() => deleteHandler(user._id)}
+                  >
                     <i className="bi bi-x-circle"></i>
                   </Button>
                 </td>
