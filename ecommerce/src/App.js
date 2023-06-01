@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import React, { useState } from "react";
 import "./App.css";
 
 // Public Pages
@@ -46,7 +47,7 @@ import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatCom
 
 function App() {
   // const [loggedIn, setLoggedIn] = useState(true);
-  // const [isAdmin, setIsAdmin] = useState(true);
+  // const [admin, setdmin] = useState(true);
   // const [isUser, setIsUser] = useState(true);
   // const handleLoggedIn = () => {
   //   localStorage.getItem("userInfo") ? setLoggedIn(true) : setLoggedIn(false);

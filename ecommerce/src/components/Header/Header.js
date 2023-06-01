@@ -1,4 +1,3 @@
-import React , { useState , useEffect} from "react";
 import { useDispatch } from "react-redux";
 import {
   Navbar,
@@ -16,14 +15,11 @@ import "./header.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { logout } from "../../redux/actions/userAction";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
   const primaryColor = "#f3f5fa";
   // const secondaryColor = "#458217";
-  const navigate = useNavigate();
   const accentColor = "#E48334";
   const accentButtonStyle = {
     backgroundColor: accentColor,
@@ -31,14 +27,8 @@ const HeaderComponent = () => {
   const navbarStyle = {
     backgroundColor: primaryColor,
   };
-  const handelLogoutButton = () => {
-    dispatch({ type: "LOGOUT_USER" });
-    navigate("/login");
-  };
-  const [isAdmin , setIsAdmin] = useState(false);
-useEffect(() => {
-console.log(JSON.parse(localStorage.userInfo));
-} , [])
+  
+
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
       <Container>
@@ -84,9 +74,13 @@ console.log(JSON.parse(localStorage.userInfo));
             </InputGroup>
           </Nav>
           <Nav className="ms-auto">
-           {isAdmin &&<LinkContainer to="/admin/orders">
+            {/* {admin &&<LinkContainer to="/admin/orders">
               <Nav.Link>Dashboard</Nav.Link>
-            </LinkContainer> } 
+            </LinkContainer> }  */}
+
+            <LinkContainer to="/admin/orders">
+              <Nav.Link>Dashboard</Nav.Link>
+            </LinkContainer>
 
             <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">
               <NavDropdown.Item eventKey="/user" as={Link} to="/user">
@@ -100,7 +94,7 @@ console.log(JSON.parse(localStorage.userInfo));
                 My orders
               </NavDropdown.Item>
 
-              <NavDropdown.Item onClick={handelLogoutButton}>
+              <NavDropdown.Item onClick={() => dispatch(logout())}>
                 Logout
               </NavDropdown.Item>
             </NavDropdown>

@@ -45,7 +45,7 @@ function LoginPageComponent({
             //   navigate("/user", { replace: true });
             // else navigate("/admin/orders", { replace: true });
 
-            window.location.href = "/user";
+            window.location.href = "/";
           else window.location.href = "/admin/orders";
         })
         .catch((er) =>
@@ -108,7 +108,7 @@ function LoginPageComponent({
                   as="span"
                   animation="border"
                   size="sm"
-                  role="status"
+                  // role="status"
                   aria-hidden="true"
                   className="me-1"
                 />
