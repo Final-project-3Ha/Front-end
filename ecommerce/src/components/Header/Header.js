@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Navbar,
   Nav,
@@ -18,6 +18,8 @@ import { logout } from "../../redux/actions/userAction";
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.userRegisterLogin);
+
   const primaryColor = "#f3f5fa";
   // const secondaryColor = "#458217";
   const accentColor = "#E48334";
@@ -27,7 +29,6 @@ const HeaderComponent = () => {
   const navbarStyle = {
     backgroundColor: primaryColor,
   };
-  
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={navbarStyle}>
@@ -73,40 +74,43 @@ const HeaderComponent = () => {
               </Button>
             </InputGroup>
           </Nav>
+
           <Nav className="ms-auto">
-            {/* {admin &&<LinkContainer to="/admin/orders">
-              <Nav.Link>Dashboard</Nav.Link>
-            </LinkContainer> }  */}
+            {userInfo.isAdmin ? (
+              <LinkContainer to="/admin/orders">
+                <Nav.Link>Dashboard</Nav.Link>
+              </LinkContainer>
+            ) : userInfo.name && !userInfo.isAdmin ? (
+              <NavDropdown title={`${userInfo.name} ${userInfo.lastName}`} id="collasible-nav-dropdown">
+                <NavDropdown.Item eventKey="/user" as={Link} to="/user">
+                  My profile
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  eventKey="/user/my-orders"
+                  as={Link}
+                  to="/user/my-orders"
+                >
+                  My orders
+                </NavDropdown.Item>
 
-            <LinkContainer to="/admin/orders">
-              <Nav.Link>Dashboard</Nav.Link>
-            </LinkContainer>
+                <NavDropdown.Item onClick={() => dispatch(logout())}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <>
+                {/* <LinkContainer to="/product-list">
+                  <Nav.Link>Products</Nav.Link>
+                </LinkContainer> */}
+                <LinkContainer to="/login">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/register">
+                  <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
+              </>
+            )}
 
-            <NavDropdown title="Hassan HA" id="collasible-nav-dropdown">
-              <NavDropdown.Item eventKey="/user" as={Link} to="/user">
-                My profile
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                eventKey="/user/my-orders"
-                as={Link}
-                to="/user/my-orders"
-              >
-                My orders
-              </NavDropdown.Item>
-
-              <NavDropdown.Item onClick={() => dispatch(logout())}>
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-            <LinkContainer to="/product-list">
-              <Nav.Link>Products</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <Nav.Link>Login</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/register">
-              <Nav.Link>Register</Nav.Link>
-            </LinkContainer>
             <LinkContainer to="/cart">
               <Nav.Link style={accentButtonStyle}>
                 <Badge pill bg="#E48334" style={accentButtonStyle}>
